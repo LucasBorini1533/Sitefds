@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interface de Botões</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Fundo preto */
+            color: white; /* Texto branco */
+            margin: 0; /* Remove margens padrão */
+            padding: 0; /* Remove preenchimento padrão */
+            overflow: hidden; /* Impede rolagem */
+        }
+        #texto {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center; /* Centraliza o texto */
+        }
+        .botao {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            width: 80%; /* Botões ocupam 80% da largura */
+            max-width: 300px; /* Largura máxima dos botões */
+        }
+        #sim {
+            background-color: #4CAF50; /* Verde */
+            color: white;
+        }
+        #nao {
+            background-color: #f44336; /* Vermelho */
+            color: white;
+        }
+        #imagem {
+            max-width: 80%; /* Tamanho máximo da imagem */
+            height: auto; /* Mantém a proporção da imagem */
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <img id="imagem" src="https://st2.depositphotos.com/1001911/12400/v/380/depositphotos_124005594-stock-illustration-emoticon-with-rose-between-teeth.jpg" alt="Imagem Exemplo"> 
+    <div id="texto">Vamo sair fim de semana?</div>
+    <button id="sim" class="botao">Sim Gatão</button>
+    <button id="nao" class="botao">Não</button>
+
+    <script>
+        document.getElementById('sim').onclick = function() {
+            window.open('https://www.youtube.com/watch?v=izGwDsrQ1eQ', '_blank');
+        };
+
+        document.getElementById('nao').onclick = function() {
+            moveButton();
+        };
+
+        function moveButton() {
+            const button = document.getElementById('nao');
+            const buttonWidth = button.offsetWidth; // Largura do botão
+            const buttonHeight = button.offsetHeight; // Altura do botão
+            // Calcula uma nova posição aleatória, garantindo que o botão fique visível na tela
+            const randomX = Math.floor(Math.random() * (window.innerWidth - buttonWidth));
+            const randomY = Math.floor(Math.random() * (window.innerHeight - buttonHeight));
+            button.style.position = 'absolute';
+            button.style.left = randomX + 'px';
+            button.style.top = randomY + 'px';
+        }
+    </script>
+
+</body>
+</html>
