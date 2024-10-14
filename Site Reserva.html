@@ -31,7 +31,7 @@
             border: none;
             border-radius: 5px;
             width: 80%; /* Botões ocupam 80% da largura */
-            max-width: 300px; /* Largura máxima dos botões */
+            max-width: 150px; /* Largura máxima dos botões */
         }
         #sim {
             background-color: #4CAF50; /* Verde */
@@ -41,7 +41,7 @@
             background-color: #f44336; /* Vermelho */
             color: white;
         }
-        #imagem {
+        #imagem, imagem2 {
             max-width: 80%; /* Tamanho máximo da imagem */
             height: auto; /* Mantém a proporção da imagem */
             margin-bottom: 20px;
@@ -50,18 +50,28 @@
 </head>
 <body>
 
-    <img id="imagem" src="https://st2.depositphotos.com/1001911/12400/v/380/depositphotos_124005594-stock-illustration-emoticon-with-rose-between-teeth.jpg" alt="Imagem Exemplo"> 
-    <div id="texto">Vamo sair fim de semana?</div>
-    <button id="sim" class="botao">Sim Gatão</button>
-    <button id="nao" class="botao">Não</button>
+	
+		<img id="imagem" src="https://st2.depositphotos.com/1001911/12400/v/380/depositphotos_124005594-stock-illustration-emoticon-with-rose-between-teeth.jpg" alt=""> 
+		<div id="texto">Vamos sair fim de semana?</div>
+		<button id="sim" class="botao" >Sim Gatão</button>
+		<button id="nao" class="botao">Não</button>
+	 
+	
+	<div style="display:none" id="video" name="video" align="center">
+		<iframe width="300" height="315" src="https://www.youtube.com/embed/JqIHlDVqUTw?si=hxZsyXkREjp5F2_X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+		<div id="texto">Então aperte o play gatinha!</div>
+		<img id="imagem2" src="https://cdn.pixabay.com/photo/2020/02/09/09/25/smiley-4832458_640.png" alt="" height="190px" width="200px"> 
+	</div>
 
     <script>
-        document.getElementById('sim').onclick = function() {
-            window.open('https://www.youtube.com/watch?v=izGwDsrQ1eQ', '_blank');
-        };
+       
 
         document.getElementById('nao').onclick = function() {
             moveButton();
+        };
+		
+		document.getElementById('sim').onclick = function() {
+            trocar();
         };
 
         function moveButton() {
@@ -75,6 +85,23 @@
             button.style.left = randomX + 'px';
             button.style.top = randomY + 'px';
         }
+		
+		function trocar() {		
+			var sim = document.getElementById('video');
+			var sim1 = document.getElementById('imagem');
+			var sim2 = document.getElementById('texto');
+			var sim3 = document.getElementById('sim');
+			var sim4 = document.getElementById('nao');
+			
+			sim.style.display='inline';
+			
+			sim1.style.display='none';
+			sim2.style.display='none';
+			sim3.style.display='none';
+			sim4.style.display='none';
+		}
+		
+		
     </script>
 
 </body>
